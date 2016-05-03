@@ -97,7 +97,7 @@ command :update_templates do |c|
     File.delete(author) if File.exists?(author)
     File.delete(header) if File.exists?(header)
 
-    response = `#{$0} -d #{global_options[:config]} create_templates`
+    response = `#{$0} -c #{global_options[:config]} create_templates`
     puts response
   end
 end
@@ -153,7 +153,7 @@ __END__
 title: "{{ post_title }}"
 kind: article
 created_at: {{ post_date }}
-author: {{ author }}
+author: "{{ author }}"
 categories: {{ blog_categories }}
 tags: {{ blog_tags }}
 layout: post
@@ -166,18 +166,19 @@ planet:
     posts_directory: source/_posts/
     templates_directory: source/_layouts/
     whitelisted_tags: []
+    sanitize_html: false
 
 blogs:
   # Bare minimum to get it working
-  - author: "Cubox"
-    feed:   "http://blog.cuboxlabs.com/atom.xml"
-    image:  "http://cuboxlabs.com/img/cubox-humans/could-be-you.png"
+  - author: "Sample: RSS Specifications"
+    feed:   "http://www.rss-specifications.com/blog-feed.xml"
+    image:  "http://www.rss-specifications.com/rss-spec-rss.gif"
 
-  - author: "Pablo Astigarraga"
-    feed:   "http://blog.poteland.com/atom.xml"
-    image:  "http://poteland.com/images/avatars/red_mage.png"
+  - author: "Anonimus Author"
+    feed:   "http://www.feedforall.com/sample.xml"
+    image:  "http://www.feedforall.com/ffalogo48x48.gif"
     # Other fields:
     twitter: "poteland"
     categories: "programming"
-    tags: "go ruby jekyll git"
-    url: "http://blog.poteland.com"    # => only required for people that don\'t have a \'url\' field on their RSS/Atom field'
+    tags: "test rss feed"
+    url: "http://www.feedforall.com/sample-feeds.htm"    # => only required for people that don\'t have a \'url\' field on their RSS/Atom field'

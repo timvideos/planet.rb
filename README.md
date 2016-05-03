@@ -4,7 +4,7 @@
 
 This IS a work in progress, although most functionality is already implemented, do not expect much stability, and of course patches are appreciated. :)
 
-This gem is also **[gloriously untested](http://jamiesharpe.info/image/comics/haters/haters_gonna_hate3.jpg)** so I will assume that each time we use it a TDD enthusiast's head explodes. I expect, of course, to add some testing later, but for now I'd rather focus on functionality.
+This gem is also **[gloriously untested](https://camo.githubusercontent.com/47a95d835ab6fb66486fb17164fe091ed1ab007f/687474703a2f2f69313030312e70686f746f6275636b65742e636f6d2f616c62756d732f61663133382f637970636f64652f46756e6e7925323053747566662f6861746572735f676f6e6e615f68617465332e6a7067)** so I will assume that each time we use it a TDD enthusiast's head explodes. I expect, of course, to add some testing later, but for now I'd rather focus on functionality.
 
 ## What is this devilry?
 
@@ -41,10 +41,10 @@ Install the planet.rb gem
 
 ```bash
 ▸ gem install planet
-Successfully installed planet-0.2.4
+Successfully installed planet-0.5.5
 1 gem installed
-Installing ri documentation for planet-0.2.4...
-Installing RDoc documentation for planet-0.2.4...
+Installing ri documentation for planet-0.5.5...
+Installing RDoc documentation for planet-0.5.5...
 ```
 
 Create a sample planet.yml config file
@@ -61,23 +61,24 @@ You will most likely want to edit this yml file (unless you reallly really like 
 => You are missing some files in your templates directory, planet.rb will create them for you - make sure to review them on source/_layouts/!
 => Created default source/_layouts/author.html
 => Created default source/_layouts/header.md
-=> Parsing http://blog.poteland.com/atom.xml
-=> Found post titled I made a pretty gem - Planet.rb - by Pablo Astigarraga
-=> Parsing http://blog.cuboxlabs.com/atom.xml
-=> Found post titled Mozilla Developer Network Hack Day Montevideo 2012 - by Cubox
-=> Found post titled Cubox brings back Ruby meetups to Montevideo - by Cubox
-=> Found post titled We're hiring - by Cubox
-=> Found post titled rubydeps - New gem by Cuboxer - by Cubox
-=> Found post titled Cuboxers at wroc_love.rb in Poland - by Cubox
-=> Found post titled Open Source Projects - by Cubox
-=> Found post titled Machine learning in perspective - by Cubox
-=> Found post titled Cubox on finances - by Cubox
-=> Found post titled So what is Uruguay like? - by Cubox
-=> Found post titled Supporting this weekend's Rails Bugmash - by Cubox
-=> Found post titled One App in the App Store - by Cubox
-=> Found post titled A new website - by Cubox
-=> Found post titled Google Chrome OS: Obvious to the point of being boring. - by Cubox
-=> Writing 14 posts to the source/_posts/ directory
+=> Parsing http://www.rss-specifications.com/blog-feed.xml
+=> Found post titled Understanding RSS Feeds - by Sample: RSS Specifications
+=> Found post titled Create an RSS Feed - by Sample: RSS Specifications
+=> Found post titled Social Media in a recession, does it make financial sense? - by Sample: RSS Specifications
+=> Found post titled Feds Launch Social Media Verification Registry - by Sample: RSS Specifications
+=> Found post titled Kids, Safety and Social Media - by Sample: RSS Specifications
+...
+=> Parsing http://www.feedforall.com/sample.xml
+=> Found post titled RSS Solutions for Restaurants - by Anonimus Author
+=> Found post titled RSS Solutions for Schools and Colleges - by Anonimus Author
+=> Found post titled RSS Solutions for Computer Service Companies - by Anonimus Author
+=> Found post titled RSS Solutions for Governments - by Anonimus Author
+=> Found post titled RSS Solutions for Politicians - by Anonimus Author
+=> Found post titled RSS Solutions for Meteorologists - by Anonimus Author
+=> Found post titled RSS Solutions for Realtors & Real Estate Firms - by Anonimus Author
+=> Found post titled RSS Solutions for Banks / Mortgage Companies - by Anonimus Author
+=> Found post titled RSS Solutions for Law Enforcement - by Anonimus Author
+=> Writing 594 posts to the source/_posts/ directory.
 ```
 
 And that's it! your source/_posts/ directory (or whatever you selected in your planet.yml file) should be populated with all relevant posts from the blogs you've configured, and  it's ready to be consumed by Octopress. :)
@@ -88,23 +89,23 @@ The planet.yml file contains the basic config options for planet. It consists of
 
 ```yaml
 planet:
-    posts_directory: source/_posts/                 # => Posts text files will be written into this directory
-    templates_directory: source/_layouts/       # => Planet specific layouts will be saved here, I suggest that it matches your Octopress/Jekyll layout directory.
-    whitelisted_tags: []                                   # => Only posts that are tagged with any of these tags will be imported
+    posts_directory: source/_posts/           # => Posts text files will be written into this directory
+    templates_directory: source/_layouts/     # => Planet specific layouts will be saved here, I suggest that it matches your Octopress/Jekyll layout directory.
+    whitelisted_tags: []                      # => Only posts that are tagged with any of these tags will be imported
 
 blogs:
-  - author: "Cubox"                                 # => Name that we will use as the author of this post (soon you wont have to specify this :)
-    feed:   "http://blog.cuboxlabs.com/atom.xml"    # => RSS/Atom feed
-    image:  "http://cubox-website.s3.amazonaws.com/i-work-at-cubox/i-work-at-cubox-badge-small.png"  # => Image to use when doing credits
+  - author: "Sample: RSS Specifications"                          # => Name that we will use as the author of this post
+    feed:   "http://www.rss-specifications.com/blog-feed.xml"     # => RSS/Atom feed
+    image:  "http://www.rss-specifications.com/rss-spec-rss.gif"  # => Image to use when doing credits
 
-  - author:    "Pablo Astigarraga"
-    feed:      "http://blog.poteland.com/atom.xml"
-    image:     "http://poteland.com/images/avatars/red_mage.png"
-    categories: "programming"                       # => If you want to group your posts by categories or
-    tags:      "go ruby jekyll git"                 # => tag them, you can do that.
-    twitter:   "poteland"                           # => Do you want a link to the user's twitter account next to the credits? You got it.
-    url:       "http://blog.poteland.com"           # => This is not needed in most cases, because it's picked up from the feed, but if it's not on the feed
-                                                    #    then planet will ask you to specify it. :)
+  - author:    "Anonimus Author"
+    feed:      "http://www.feedforall.com/sample.xml"
+    image:     "http://www.feedforall.com/ffalogo48x48.gif"
+    categories: "programming"                 # => If you want to group your posts by categories or
+    tags:      "test rss feed"                # => tag them, you can do that.
+    twitter:   "poteland"                     # => Do you want a link to the user's twitter account next to the credits? You got it.
+    url:       "http://www.feedforall.com/sample-feeds.htm" # => This is not needed in most cases, because it's picked up from the feed, but if it's not on the feed
+                                                            #    then planet will ask you to specify it. :)
 
 ```
 
@@ -114,15 +115,15 @@ So this is pretty sweet: planet.rb doesn't really want to inject html and random
 
 ```mustache
    {{ post_title }}             # => "I Made a Pretty Gem - Planet.rb"
-   {{ post_url }}               # => "http://blog.poteland.com/blog/2012/04/14/i-made-a-pretty-gem-planet-dot-rb/"
+   {{ post_url }}               # => "http://poteland.com/blog/i-made-a-pretty-gem-planet-dot-rb/"
    {{ post_date }}              # => "2012-04-14 05:17:00 UTC"
    {{ post_content }}           # => "I’ve been hurting to write this ever since we had the idea of creating a Planet for Cubox..." (Continued)
    {{ blog_name }}              # => "This is where I tell you stuff"
    {{ blog_slug }}              # => "this-is-where-i-tell-you-stuff"
-   {{ blog_url }}               # => "http://blog.poteland.com"
+   {{ blog_url }}               # => "http://poteland.com/articles"
    {{ blog_categories }}        # => "programming planet"
    {{ blog_tags }}              # => "go ruby jekyll"
-   {{ image_url }}              # => "http://poteland.com/images/avatars/red_mage.png"
+   {{ image_url }}              # => "http://poteland.com/images/site-logo.png"
    {{ author }}                 # => "Pablo Astigarraga"
    {{ twitter }}                # => "poteland"
    {{ twitter_url }}            # => "http://twitter.com/poteland"
@@ -139,7 +140,7 @@ If you are unsure of how planet.rb should be used make sure to check their blog 
 
 ## Migrate your blog to Octopress using planet.rb!
 
-I've written a brief [blog post](http://blog.poteland.com/blog/2012/04/20/migrate-your-blog-to-octopress-using-planet-dot-rb/) about how to do this. Works like a charm :).
+I've written a brief [blog post](http://poteland.com/blog/migrate-your-blog-to-octopress-using-planet-dot-rb/) about how to do this. Works like a charm :).
 
 
 ## Contributors
